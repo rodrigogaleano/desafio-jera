@@ -5,6 +5,7 @@ const Pesquisa = (props) => {
         <div className="pesquisa-container">
             <div className="pesquisa-content">
                 <input
+                    className="pesquisa-input"
                     type="text"
                     placeholder="Pesquisar"
                     value={props.Pesquisa}

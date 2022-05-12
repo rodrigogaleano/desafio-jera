@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'; //Importa o React
 import './Home.css'
 //Importa os componentes
-import ListaFilmes from '../components/ListaFilmes';
-import Cabecalho from '../components/Cabecalho';
-import Pesquisa from '../components/Pesquisa';
-import AddFavorito from '../components/AddFavorito';
-import RemoverFavorito from '../components/RemoverFavorito';
-import Rodape from '../components/Rodape';
+import ListaFilmes from '../../components/ListaFilmes';
+import Cabecalho from '../../components/Cabecalho';
+import Pesquisa from '../../components/Pesquisa';
+import AddFavorito from '../../components/AddFavorito';
+import RemoverFavorito from '../../components/RemoverFavorito';
+import Rodape from '../../components/Rodape';
 
 function Home() { //Cria a função Home
 
