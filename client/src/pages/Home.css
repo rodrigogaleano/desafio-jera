@@ -1,0 +1,112 @@
+/* ---------- CABEÇALHO  ----------*/
+
+header {
+    background-color: #112B3C;
+    color: #F66B0E;
+}
+
+.cabecalho-container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+/* ---------- PESQUISA  ----------*/
+
+.pesquisa-container {
+    background-color: #112B3C;
+}
+
+.pesquisa-content {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+input {
+    width: 500px;
+    padding: 10px;
+    border: 1px solid #EFEFEF;
+    border-radius: 5px;
+    outline: none;
+    background: #205375;
+    color: #EFEFEF;
+}
+
+/* ---------- LISTA DE FILMES  ----------*/
+
+.container{
+    width: 80%;
+    margin: auto;
+}
+
+.lista-filme-container{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.filme{
+    padding: 20px;
+    transition: 0.2s;
+}
+
+.filme:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.filme:hover .filme-overlay{
+    opacity: 1;
+}
+
+.filme-overlay{
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    width: 260px;    
+    transition: 0.5s ease;
+    opacity: 0;
+    top: 20px;
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+/* ---------- RODAPÉ  ----------*/
+
+footer{
+    background-color: #112B3C;
+    color: #EFEFEF;
+    padding: 20px;
+}
+
+.rodape-container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rodape-container img{
+    width: 32px;
+}
+
+.rodape-container ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rodape-container li{
+    list-style: none;
+    margin-left: 20px;
+}
