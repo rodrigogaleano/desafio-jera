@@ -13,6 +13,8 @@ function Home() { //Cria a função Home
     const [filmes, setFilmes] = useState([]); //Cria o estado de filmes
     const [favoritos, setFavoritos] = useState([]); //Cria o estado de favoritos
     const [pesquisa, setPesquisa] = useState(''); //Cria o estado de pesquisa
+    const [assistidos, setAssistidos] = useState([]); //Cria o estado de assistidos
+    const [assistidoEstilo, setAssistidoEstilo] = useState(false); //Cria o estado de assistidos
 
     const constularFilmes = async (pesquisa) => {
         const url = `https://api.themoviedb.org/3/search/movie?api_key=88ee9533acb6d4f3193bab7b9d06e012&language=pt-BR&query=${pesquisa}`; //Cria a url para consulta
@@ -31,7 +33,7 @@ function Home() { //Cria a função Home
     useEffect(() => {
         const filmesFavoritos = JSON.parse(localStorage.getItem('react-jera-favoritos'));
         setFavoritos(filmesFavoritos);
-    },[]);
+    }, []);
 
     const salvarLocalStorage = (items) => {
         localStorage.setItem('react-jera-favoritos', JSON.stringify(items)); //Salva no localStorage
@@ -50,6 +52,16 @@ function Home() { //Cria a função Home
         salvarLocalStorage(novaListaFavorito); //Salva no localStorage
     }
 
+    const marcarAssistido = (filme) => {
+        const novaListaAssistidos = [...assistidos, filme];
+        setAssistidos(novaListaAssistidos);
+    }
+
+    
+    const mudarAssistido = (filme) => {
+        setAssistidoEstilo(!assistidoEstilo);
+    }
+
     return (
         <div>
             <Cabecalho />
@@ -62,6 +74,8 @@ function Home() { //Cria a função Home
                 identificador="favoritos"
                 handleFavoritoClick={RemoverFilmeFavorito}
                 favoritoComponent={RemoverFavorito}
+                marcarAssistido={marcarAssistido}
+                assistidos={assistidos}
             />
             <ListaFilmes
                 filmes={filmes}
@@ -69,7 +83,7 @@ function Home() { //Cria a função Home
                 handleFavoritoClick={addFilmeFavorito}
                 favoritoComponent={AddFavorito}
             />
-            <Rodape/>
+            <Rodape />
         </div>
     );
 }
