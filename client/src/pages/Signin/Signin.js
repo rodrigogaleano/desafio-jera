@@ -4,7 +4,7 @@ import useAuth from "../../hooks/useAuth";
 
 function Signin() {
 
-    const {signin} = useAuth();
+    const { signin } = useAuth();
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
