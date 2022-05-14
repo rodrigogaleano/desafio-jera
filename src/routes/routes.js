@@ -7,7 +7,8 @@ import Signup from "../pages/Signup/Signup";
 
 const Private = ({ Item }) => {
   const { signed } = useAuth();
-  return signed  ? <Item /> : <Signin />;
+
+  return signed > 0 ? <Item /> : <Signin />;
 };
 
 const RoutesApp = () => {

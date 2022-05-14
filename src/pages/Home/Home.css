@@ -14,6 +14,17 @@ header {
     padding: 10px;
 }
 
+.cabecalho-container button {
+    background-color: #F66B0E;
+    color: #EFEFEF;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    width: 70px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 /* ---------- PESQUISA  ----------*/
 
 .pesquisa-container {
@@ -84,31 +95,6 @@ header {
     padding: 20px;
     color: white;
     transition: 0.2s;
-}
-
-.assistido-desativado{
-    position: fixed;
-    background: rgba(246,107,14,0.5);
-    transition: 0.5s ease;
-    width: 260px;    
-    bottom: 23px;
-    opacity: 1;
-    font-size: 20px;
-    text-align: center;
-    padding: 20px;
-    color: white;
-}
-
-.assistido-ativado{
-    position: relative;
-    background: rgba(32,83,117,0.5);
-    width: 260px;    
-    bottom: 70px;
-    opacity: 1;
-    font-size: 20px;
-    text-align: center;
-    padding: 20px;
-    color: white;
 }
 
 /* ---------- RODAPÉ  ----------*/

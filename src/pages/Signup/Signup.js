@@ -23,7 +23,11 @@ function Signup() {
         } else if (email !== emailConf) {
             setError("Os e-mails não coincidem");
             return;
+        }else if (senha !== senhaConf) {
+            setError("As senhas não coincidem");
+            return;
         }
+
         const res = signup(email, senha);
 
         if (res) {

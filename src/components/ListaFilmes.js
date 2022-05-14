@@ -1,14 +1,7 @@
-import React, { useState } from "react";
-import Assistido from "./Assistido";
-import { AiOutlineEye } from 'react-icons/ai'
+import React from "react";
 
 const ListaFilmes = props => {
     const FavoritoComponent = props.favoritoComponent;
-    const [assistido, setAssistido] = useState(false); //Cria o estado de assistidos
-
-    const mudarAssistido = (filme) => {
-        setAssistido(!assistido);
-    }
 
     return (
         <div className="container">
@@ -28,21 +21,6 @@ const ListaFilmes = props => {
                             }
                             <div className="filme-overlay" onClick={() => props.handleFavoritoClick(filme)}>
                                 <FavoritoComponent />
-                            </div>
-                            {
-                                  filme ===  props.assistidos ? 
-                                    <div onClick={props.marcarAssistido}>
-                                            {
-                                                assistido ? <span>Assistido</span> : <span>Marcar como assistido</span>
-                                            }
-                                            
-                                            <AiOutlineEye color="white" size={20} />
-                                        
-                                    </div>
-                                    :
-                                    <></>
-                            }
-                            <div className="filme-info">
                             </div>
                         </div>
                     )

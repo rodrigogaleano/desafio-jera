@@ -1,29 +1,34 @@
 import React, { useState } from "react";
+import "./Signin.css";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import "./Signin.css";
 
 function Signin() {
 
-    const { signin } = useAuth();
-    const navigate = useNavigate();
+    const { signin } = useAuth(); //Cria o estado de autenticação
+    const navigate = useNavigate(); //Cria o estado de navegação
 
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
-    const [error, setError] = useState("");
+    const [email, setEmail] = useState(""); //Cria o estado de e-mail
+    const [senha, setSenha] = useState(""); //Cria o estado de senha
+    const [error, setError] = useState(""); //Cria o estado de erro
 
-    const handleLogin = () => {
-        if (!email || !senha) {
-            setError("Preencha todos os campos");
-            return;
+    //Função para fazer o login
+    const handleLogin = () => { 
+        if (!email || !senha) { //Se o e-mail ou a senha estão vazios
+            setError("Preencha todos os campos"); //Atualiza o estado de erro
+            return; //Retorna
         }
 
-        const res = signin(email, senha);
+        const res = signin(email, senha); //Faz o login
+
+        //Se o login foi bem sucedido
         if (res) {
-            setError(res);
-            return;
+            setError(res); //Atualiza o estado de erro
+            return; //Retorna
         }
-        navigate("/home");
+        
+        
+        navigate("/home"); //Redireciona para a página home
     }
 
     return (

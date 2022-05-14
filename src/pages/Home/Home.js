@@ -13,8 +13,6 @@ function Home() { //Cria a função Home
     const [filmes, setFilmes] = useState([]); //Cria o estado de filmes
     const [favoritos, setFavoritos] = useState([]); //Cria o estado de favoritos
     const [pesquisa, setPesquisa] = useState(''); //Cria o estado de pesquisa
-    const [assistidos, setAssistidos] = useState([]); //Cria o estado de assistidos
-    const [assistidoEstilo, setAssistidoEstilo] = useState(false); //Cria o estado de assistidos
 
     const constularFilmes = async (pesquisa) => {
         const url = `https://api.themoviedb.org/3/search/movie?api_key=88ee9533acb6d4f3193bab7b9d06e012&language=pt-BR&query=${pesquisa}`; //Cria a url para consulta
@@ -32,7 +30,11 @@ function Home() { //Cria a função Home
 
     useEffect(() => {
         const filmesFavoritos = JSON.parse(localStorage.getItem('react-jera-favoritos'));
-        setFavoritos(filmesFavoritos);
+        
+        if (filmesFavoritos){
+            setFavoritos(filmesFavoritos);
+        } 
+        
     }, []);
 
     const salvarLocalStorage = (items) => {
@@ -40,10 +42,9 @@ function Home() { //Cria a função Home
     }
 
     const addFilmeFavorito = (filme) => {
-        const novaListaFavorito = [...favoritos, filme]; //Cria um novo favorito
-        console.log(novaListaFavorito);
-        setFavoritos(novaListaFavorito); //Atualiza o estado de favoritos
-        salvarLocalStorage(novaListaFavorito); //Salva no localStorage
+        const novoFavorito = [...favoritos, filme]; //Cria um novo array com o filme adicionado
+        setFavoritos(novoFavorito); //Atualiza o estado de favoritos
+        salvarLocalStorage(novoFavorito); //Salva no localStorage
     }
 
     const RemoverFilmeFavorito = (filme) => {
@@ -52,15 +53,6 @@ function Home() { //Cria a função Home
         salvarLocalStorage(novaListaFavorito); //Salva no localStorage
     }
 
-    const marcarAssistido = (filme) => {
-        const novaListaAssistidos = [...assistidos, filme];
-        setAssistidos(novaListaAssistidos);
-    }
-
-    
-    const mudarAssistido = (filme) => {
-        setAssistidoEstilo(!assistidoEstilo);
-    }
 
     return (
         <div>
@@ -69,14 +61,14 @@ function Home() { //Cria a função Home
                 pesquisa={pesquisa}
                 setPesquisa={setPesquisa}
             />
+
             <ListaFilmes
                 filmes={favoritos}
                 identificador="favoritos"
                 handleFavoritoClick={RemoverFilmeFavorito}
                 favoritoComponent={RemoverFavorito}
-                marcarAssistido={marcarAssistido}
-                assistidos={assistidos}
             />
+
             <ListaFilmes
                 filmes={filmes}
                 identificador="filmes"
@@ -88,4 +80,4 @@ function Home() { //Cria a função Home
     );
 }
 
-export default Home;
+export default Home; 
