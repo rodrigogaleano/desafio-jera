@@ -5,38 +5,39 @@ import "./Signup.css";
 
 function Signup() {
 
-    const [nome, setNome] = useState("");
-    const [dataNasc, setDataNas] = useState("");
-    const [email, setEmail] = useState("");
-    const [emailConf, setEmailConf] = useState("");
-    const [senha, setSenha] = useState("");
-    const [senhaConf, setSenhaConf] = useState("");
-    const [error, setError] = useState("");
+    const [nome, setNome] = useState(""); //Estado do nome
+    const [dataNasc, setDataNas] = useState(""); //Estado da data de nascimento
+    const [email, setEmail] = useState(""); //Estado do email
+    const [emailConf, setEmailConf] = useState(""); //Estado do email de confirmação
+    const [senha, setSenha] = useState(""); //Estado da senha
+    const [senhaConf, setSenhaConf] = useState(""); //Estado da senha de confirmação
+    const [error, setError] = useState(""); //Estado do erro
 
+    //Navegar entre as páginas
     const navigate = useNavigate();
-    const { signup } = useAuth();
+    const { signup } = useAuth(); 
 
     const handleCadastro = () => {
-        if (!nome | !dataNasc | !email | !emailConf | !senha | !senhaConf) {
+        if (!nome | !dataNasc | !email | !emailConf | !senha | !senhaConf) { //Verifica se todos os campos estão preenchidos
             setError("Preencha todos os campos");
             return;
-        } else if (email !== emailConf) {
+        } else if (email !== emailConf) { //Verifica se os emails são iguais
             setError("Os e-mails não coincidem");
             return;
-        }else if (senha !== senhaConf) {
+        }else if (senha !== senhaConf) { //Verifica se as senhas são iguais
             setError("As senhas não coincidem");
             return;
         }
 
-        const res = signup(email, senha);
+        const res = signup(email, senha); //Chama a função de cadastro do Auth
 
-        if (res) {
+        if (res) { //Verifica se o cadastro foi realizado com sucesso
             setError(res);
             return;
         }
 
-        alert("Cadastro realizado com sucesso!");
-        navigate("/");
+        alert("Cadastro realizado com sucesso!"); //Alerta de cadastro realizado com sucesso
+        navigate("/"); //Redireciona para a página inicial
     }
 
     return (
