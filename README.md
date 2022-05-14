@@ -7,7 +7,7 @@
 
 ## Sobre
 
-Projeto desenvolvido para a vaga de pessoa desenvolvedora web da [Jera](https://jera.com.br/). Você pode acessar a demo através deste [link](https://rodrigo-galeano-desafio-jera.vercel.app/).
+Projeto desenvolvido para a vaga de pessoa desenvolvedora web da [Jera](https://jera.com.br/). Você pode acessar a demo através deste [link](https://rodrigo-galeano-desafio-jera.vercel.app/). Você também pode fazer uma  pré-visualização através deste [Vídeo](https://www.youtube.com/watch?v=Hvu0WXHViac) no YouTube.
 
 ## Tutorial
 
